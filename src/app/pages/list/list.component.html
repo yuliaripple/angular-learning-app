@@ -1,1 +1,6 @@
 <p>list works!</p>
+
+@for (post of data; track post.id){
+  <h1 appChangeColorBackground> {{ post.title | uppercase }}</h1>
+  <p> {{ post.body | threeDots }} </p>
+}
