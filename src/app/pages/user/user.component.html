@@ -1,0 +1,14 @@
+<div class="parent">
+  <h2>User own page</h2>
+
+  <h3>{{ userData.name }}</h3> <hr /><br />
+  (<u>E-mail:</u> {{ userData.email }}, <u>Phone:</u> {{ userData.phone }}) <br />
+  <u>City:</u> {{ userData.address ? userData.address.city : null }}<br />
+  <u>Company name:</u> {{ userData.company?.name }}<br />
+  <u>Company catch phrase:</u> {{ userData.company?.catchPhrase}}<br /><br />
+
+  <hr /><br />
+
+  <a href="/users">BACK</a>
+
+</div>

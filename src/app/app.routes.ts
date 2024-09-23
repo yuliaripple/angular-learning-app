@@ -3,6 +3,9 @@ import { MainPageComponent } from './pages/main-page/main-page.component';
 import { ListComponent } from './pages/list/list.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { AboutComponent } from './pages/about/about.component';
+import { UsersComponent } from './pages/users/users.component';
+import { UserComponent } from './pages/user/user.component';
+import { userResolver } from './resolvers/user.resolver';
 
 export const routes: Routes = [
   {
@@ -11,10 +14,24 @@ export const routes: Routes = [
     title: 'Home page'
   },
   {
-    // path: 'details/:id',
-    path: 'list',
+    path: 'posts',
     component: ListComponent,
-    title: 'List page'
+    title: 'Posts page'
+  },
+  {
+    path: 'users/:id',
+    component: UserComponent,
+    title: 'User own page',
+    resolve: { game: userResolver }
+  },
+  {
+    path: 'users',
+    component: UsersComponent,
+    title: 'Users page',
+    // children:
+    // [
+    //   { path: ':id', component: UserComponent, title: 'User own page', resolve: { game: userResolver } },
+    // ]
   },
   {
     path: 'contact',

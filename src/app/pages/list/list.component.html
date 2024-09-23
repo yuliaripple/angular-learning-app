@@ -1,6 +1,8 @@
-<p>list works!</p>
+<div class="parent">
+  <h2>Posts list</h2>
 
-@for (post of data; track post.id){
-  <h1 appChangeColorBackground> {{ post.title | uppercase }}</h1>
-  <p> {{ post.body | threeDots }} </p>
-}
+  @for (post of data; track post.id){
+    <h3 appChangeColorBackground> {{ post.title | uppercase }}</h3>
+    <p> {{ post.body | threeDots }} </p>
+  }
+</div>

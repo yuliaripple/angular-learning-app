@@ -1,0 +1,14 @@
+<div class="parent">
+  <h2>Users list</h2>
+
+  <ul>
+    @for (item of usersList; track item.id) {
+      <li>
+        <b>{{ item.name }}</b> (<u>E-mail:</u> {{ item.email }}, <u>Phone:</u> {{ item.phone }}) <br />
+        <u>City:</u> {{ item.address ? item.address.city : null }}<br />
+        <u>Company name:</u> {{ item.company?.name }}<br />
+        <u>Link to User own page:</u> <a routerLink="{{ item.id }}">LINK</a><br /><br />
+      </li>
+    }
+  </ul>
+</div>
