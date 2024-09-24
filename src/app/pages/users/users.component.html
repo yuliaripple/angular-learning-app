@@ -7,8 +7,12 @@
         <b>{{ item.name }}</b> (<u>E-mail:</u> {{ item.email }}, <u>Phone:</u> {{ item.phone }}) <br />
         <u>City:</u> {{ item.address ? item.address.city : null }}<br />
         <u>Company name:</u> {{ item.company?.name }}<br />
-        <u>Link to User own page:</u> <a routerLink="{{ item.id }}">LINK</a><br /><br />
+        <u>Link to User own page:</u> &nbsp; 
+          <a routerLink="{{ item.id }}" class="green">Click me</a> |
+          <a [routerLink]="['/users', item.id]">Click me 2</a><br /><br />
       </li>
     }
   </ul>
+  
 </div>
+<router-outlet></router-outlet>

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { UserInterface } from '../../interfaces/user-interface';
-import { GetUserService } from '../../services/get-user.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -10,21 +9,12 @@ import { GetUserService } from '../../services/get-user.service';
   styleUrl: './user.component.scss'
 })
 export class UserComponent {
-  public userData: UserInterface = {};
-  constructor(private serviceUser: GetUserService) {}
+  data: any;
+  
+  constructor(private activatedRoute: ActivatedRoute) {}
   ngOnInit() {
-    this.serviceUser.getUserById('1').subscribe({
-      next: (data: UserInterface) => {
-        console.log('user = ', data);
-        this.userData = data; 
-      },
-      error: (error) => {
-        console.log(error)
-      },
-      complete: () => {
-        console.log('complete')
-      }
-    })      
+    this.data = this.activatedRoute.snapshot.data;
+    console.log('!! data = ', this.data);
   }
 
 }

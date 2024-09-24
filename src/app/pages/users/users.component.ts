@@ -1,17 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { UserInterface } from '../../interfaces/user-interface';
 import { GetUsersService } from '../../services/get-users.service';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-users',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, RouterOutlet],
   templateUrl: './users.component.html',
   styleUrl: './users.component.scss'
 })
 export class UsersComponent {
   public usersList: UserInterface[] = [];
+
   constructor(private serviceUsers: GetUsersService) {}
 
   ngOnInit() {

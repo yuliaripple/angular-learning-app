@@ -19,10 +19,11 @@ export const routes: Routes = [
     title: 'Posts page'
   },
   {
-    path: 'users/:id',
+    path: 'users/:userId',
     component: UserComponent,
     title: 'User own page',
-    resolve: { game: userResolver }
+    pathMatch: 'full',
+    resolve: { user: userResolver }
   },
   {
     path: 'users',
