@@ -37,7 +37,7 @@ export const routes: Routes = [
   {
     path: 'contact',
     component: ContactComponent,
-    title: 'Contact page'
+    title: 'Reactive form page'
   },
   {
     path: 'about',

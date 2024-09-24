@@ -1,1 +1,21 @@
-<p>contact works!</p>
+<div class="parent">
+  <h2>Reactive form</h2>
+
+  <form class="example-form" [formGroup]="profileForm" (ngSubmit)="handleSubmit()">
+    <mat-form-field class="example-full-width">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name">
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email">
+    </mat-form-field>
+
+    <button mat-raised-button>Submit</button>
+  </form>
+
+  <h2>Profile Form</h2>
+  <p>Name: {{ profileForm.value.name }}</p>
+  <p>Email: {{ profileForm.value.email }}</p>
+</div>
