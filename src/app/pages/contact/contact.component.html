@@ -6,6 +6,20 @@
       <mat-label>Name</mat-label>
       <input matInput formControlName="name">
     </mat-form-field>
+    @if (profileForm.controls['name'].invalid && (profileForm.controls['name'].dirty || profileForm.controls['name'].touched)) {
+      <div class="alert">
+        @if (profileForm.controls['name'].hasError('required')) {
+          <div>
+            Name is required.
+          </div>
+        }
+        @if (profileForm.controls['name'].hasError('minlength')) {
+          <div>
+            Name must be at least 4 characters long.
+          </div>
+        }
+      </div>
+    }
   
     <mat-form-field class="example-full-width">
       <mat-label>Email</mat-label>

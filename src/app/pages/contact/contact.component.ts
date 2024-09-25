@@ -14,7 +14,12 @@ import { MatInputModule } from '@angular/material/input';
 })
 export class ContactComponent {
   profileForm = new FormGroup({
-    name: new FormControl('', Validators.required),
+    name: new FormControl(
+      '', 
+      [
+        Validators.required,
+        Validators.minLength(4),
+      ]),
     email: new FormControl('', Validators.required),
     aliases: new FormArray([new FormControl('')]),
   });
