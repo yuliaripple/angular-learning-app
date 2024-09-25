@@ -12,10 +12,32 @@
       <input matInput formControlName="email">
     </mat-form-field>
 
-    <button mat-raised-button>Submit</button>
+    <div formArrayName="aliases">
+      <h2>Aliases</h2>
+      <button mat-button (click)="addAlias()">+ Add another alias</button>
+      <div>
+      @for (alias of aliases.controls; track alias; let i = $index){
+        <!-- The repeated alias template -->
+        <mat-grid-list cols="2" rowHeight="80px">
+          <mat-grid-tile>
+            <mat-form-field class="example-full-width">
+              <mat-label>Alias</mat-label>
+              <input matInput id="alias-{{ i }}" [formControlName]="i">
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <button mat-button (click)="deleteAlias(i)">- Delete this alias</button>
+          </mat-grid-tile>
+        </mat-grid-list>
+      }
+      </div>
+    </div>
+
+    <button mat-raised-button [disabled]="!profileForm.valid">Submit</button>
   </form>
 
   <h2>Profile Form</h2>
   <p>Name: {{ profileForm.value.name }}</p>
   <p>Email: {{ profileForm.value.email }}</p>
+  <p>Aliases: {{ profileForm.value.aliases }}</p>
 </div>
