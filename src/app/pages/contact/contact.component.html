@@ -40,7 +40,9 @@
             </mat-form-field>
           </mat-grid-tile>
           <mat-grid-tile>
-            <button mat-button (click)="deleteAlias(i)">- Delete this alias</button>
+            @if (i !== 0) {
+              <button mat-button (click)="deleteAlias(i)">- Delete this alias</button>
+            }
           </mat-grid-tile>
         </mat-grid-list>
       }
